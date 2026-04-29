@@ -1,4 +1,5 @@
 import { wordss } from '../constants';
+import Button from '../components/Button';
 
 const Hero = () => {
     return (

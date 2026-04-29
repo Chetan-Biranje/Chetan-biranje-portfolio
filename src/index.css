@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -108,4 +110,125 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+/* ===== Hero Section ===== */
+.hero-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hero-text h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-h);
+}
+
+/* Sliding text animation */
+.slide {
+  display: inline-flex;
+  overflow: hidden;
+  height: 1.2em;
+  vertical-align: bottom;
+}
+
+.slide .wrapper {
+  display: flex;
+  flex-direction: column;
+  animation: slide-up 12s ease-in-out infinite;
+}
+
+@keyframes slide-up {
+  0%, 8% { transform: translateY(0); }
+  11%, 19% { transform: translateY(-11.11%); }
+  22%, 30% { transform: translateY(-22.22%); }
+  33%, 41% { transform: translateY(-33.33%); }
+  44%, 52% { transform: translateY(-44.44%); }
+  55%, 63% { transform: translateY(-55.55%); }
+  66%, 74% { transform: translateY(-66.66%); }
+  77%, 85% { transform: translateY(-77.77%); }
+  88%, 100% { transform: translateY(-88.88%); }
+}
+
+/* ===== CTA Button ===== */
+.cta-wrapper {
+  display: inline-flex;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cta-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-weight: 600;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.cta-button .bg-circle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  transition: all 0.4s ease;
+}
+
+.cta-button:hover .bg-circle {
+  width: 300%;
+  height: 300%;
+}
+
+.cta-button .text {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.arrow-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+
+.button-arrow {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover .button-arrow {
+  transform: translateY(3px);
+  filter: brightness(0) invert(1);
+}
+
+/* Tailwind custom color */
+@theme {
+  --color-white-50: rgba(255, 255, 255, 0.5);
 }
